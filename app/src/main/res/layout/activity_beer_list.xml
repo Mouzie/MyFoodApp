@@ -8,8 +8,8 @@
     tools:context="com.food.store.myfoodapp.BeerList">
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
         android:id="@+id/recycler_beer"
         android:scrollbars="vertical" />
 

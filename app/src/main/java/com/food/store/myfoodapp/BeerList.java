@@ -1,11 +1,11 @@
 package com.food.store.myfoodapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.food.store.myfoodapp.Interface.ItemClickListener;
@@ -32,7 +32,7 @@ public class BeerList extends AppCompatActivity {
         setContentView(R.layout.activity_beer_list);
 
         database = FirebaseDatabase.getInstance();
-        foodList = database.getReference("Beer");
+        foodList = database.getReference("Foods");
 
         recyclerView = (RecyclerView)findViewById(R.id.recycler_beer);
         recyclerView.setHasFixedSize(true);
@@ -64,7 +64,10 @@ public class BeerList extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(BeerList.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(BeerList.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
+                        Intent foodDetails = new Intent(BeerList.this, FoodDetail.class);
+                        foodDetails.putExtra("FoodsId", adapter.getRef(position).getKey());
+                        startActivity(foodDetails);
                     }
                 });
             }

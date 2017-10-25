@@ -25,8 +25,8 @@ public class BeerViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public BeerViewHolder(View itemView) {
         super(itemView);
 
-        beer_name = (TextView)itemView.findViewById(R.id.beer_name);
-        beer_image = (ImageView)itemView.findViewById(R.id.beer_image);
+        beer_name = itemView.findViewById(R.id.beer_name);
+        beer_image = itemView.findViewById(R.id.beer_image);
 
         itemView.setOnClickListener(this);
     }
