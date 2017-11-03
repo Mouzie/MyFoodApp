@@ -46,11 +46,11 @@ public class SignIn extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                             if(dataSnapshot.child(txtPhone.getText().toString()).exists()){
-
+                            mDialog.dismiss();
                             User user = dataSnapshot.child(txtPhone.getText().toString()).getValue(User.class);
+                            user.setPhone(txtPhone.getText().toString());
                             if (user.getPassword().equals(txtPassword.getText().toString()))
                             {
-//                                Toast.makeText(SignIn.this, "Sign In was good!!!", Toast.LENGTH_SHORT);
                                 Intent homeIntent = new Intent(SignIn.this, Home.class);
                                 Common.currentUser = user;
                                 startActivity(homeIntent);
